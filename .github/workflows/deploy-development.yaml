@@ -1,23 +1,45 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Build Static Website
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Build static website
       - name: Build website
         run: npm run build
 
+      # Upload build artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -32,6 +54,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      # Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -40,11 +63,13 @@ jobs:
         with:
           enablement: true  # Ensure GitHub Pages is properly set up
 
+      # Upload artifact to Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Assuming 'dist' is your build output folder
+          path: dist # Assuming 'dist' is the output folder
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
