@@ -42,9 +42,8 @@ jobs:
       - name: Install Stylelint
         run: npm install -g stylelint stylelint-config-standard
 
-      - name: Run Stylelint
-        run: |
-          stylelint "**/*.css" --config '{
+      - name: Create Stylelint Configuration
+        run: echo '{
             "rules": {
               "declaration-block-no-duplicate-properties": true,
               "no-duplicate-selectors": true,
@@ -53,7 +52,11 @@ jobs:
               "selector-type-case": "lower",
               "block-no-empty": true
             }
-          }'
+          }' > .stylelintrc.json
+
+      - name: Run Stylelint
+        run: |
+          stylelint "**/*.css"
 
   build:
     name: Build Static Website
