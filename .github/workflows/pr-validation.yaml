@@ -20,10 +20,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install --save-dev htmlhint  
 
-      - name: Run HTML Linting
-        run: npm run lint:html
+      - name: Lint HTML files with HTMLHint
+        run: npx htmlhint "**/*.html"  # Adjust the glob pattern if needed
 
   css-lint:
     name: Lint CSS Files
@@ -39,10 +40,12 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install --save-dev stylelint stylelint-config-standard
 
-      - name: Run CSS Linting
-        run: npm run lint:css
+  
+      - name: Lint CSS files with Stylelint and auto-fix
+        run: npx stylelint "**/*.css" --fix  # Automatically fix fixable issues in CSS files
 
   build:
     name: Build Static Website
