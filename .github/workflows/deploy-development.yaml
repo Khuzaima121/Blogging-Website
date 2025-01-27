@@ -67,7 +67,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Assuming 'dist' is the output folder
+          path: '.' # Assuming 'dist' is the output folder
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
