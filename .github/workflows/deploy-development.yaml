@@ -43,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'  # Ensure this points to your actual build output folder
+          path: '.'  # Ensure this points to your actual build output folder
 
   deploy:
     name: Deploy to GitHub Pages
@@ -67,7 +67,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'  # Point to your build output folder
+          path: '.'  # Point to your build output folder
           name: dist-${{ github.run_id }}
 
       # Deploy to GitHub Pages
