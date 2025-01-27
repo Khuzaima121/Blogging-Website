@@ -67,7 +67,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Assuming 'dist' is the output folder
+          path: '.'
+          name: dist-${{ github.run_id }}
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
