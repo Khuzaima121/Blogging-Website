@@ -43,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './styles,./src'  # Ensure this points to your actual build output folder
+          path: '.'  # Ensure this points to your actual build output folder
 
   deploy:
     name: Deploy to GitHub Pages
