@@ -13,6 +13,6 @@
     "htmlhint": "^0.14.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "cpy-cli": "^3.1.1"  // Add cpy-cli as a devDependency
+    "cpy-cli": "^3.1.1" 
   }
 }
