@@ -7,7 +7,8 @@
     "start": "node index.js",
     "lint:html": "npx htmlhint '**/*.html'",
     "lint:css": "npx stylelint '**/*.css'",
-    "build": "npx cpy 'src/*.html' 'styles/*.css' dist/"
+    "build": "npx cpy ./src/*.html dist/src && npx cpy ./styles/*.css dist/styles"
+
   },
   "devDependencies": {
     "htmlhint": "^0.14.2",
