@@ -7,11 +7,12 @@
     "start": "node index.js",
     "lint:html": "npx htmlhint '**/*.html'",
     "lint:css": "npx stylelint '**/*.css'",
-    "build": "echo 'No build step needed. Just serve the files directly.'"
+    "build": "npx cpy 'src/*.html' 'styles/*.css' dist/"
   },
   "devDependencies": {
     "htmlhint": "^0.14.2",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint-config-standard": "^22.0.0",
+    "cpy-cli": "^3.1.1"
   }
 }
