@@ -44,19 +44,19 @@ jobs:
 
       - name: Create Stylelint Configuration
         run: echo '{
-            "rules": {
-              "declaration-block-no-duplicate-properties": true,
-              "no-duplicate-selectors": true,
-              "property-case": "lower",
-              "value-keyword-case": "lower",
-              "selector-type-case": "lower",
-              "block-no-empty": true
+            "rules":{
+              "declaration-block-no-duplicate-properties":true,
+              "no-duplicate-selectors":true,
+              "property-case":"lower",
+              "value-keyword-case":"lower",
+              "selector-type-case":"lower",
+              "block-no-empty":true
             }
           }' > .stylelintrc.json
 
       - name: Run Stylelint
         run: |
-          stylelint "**/*.css"
+          stylelint "**/*.css" --fix
 
   build:
     name: Build Static Website
