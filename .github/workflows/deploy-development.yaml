@@ -67,7 +67,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'src,styles'  # Point to your build output folder
+          path: './src'  # Point to your build output folder
           name: dist-${{ github.run_id }}
 
       # Deploy to GitHub Pages
